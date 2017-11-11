@@ -34,35 +34,21 @@ const players = [
   }
 ];
 
-
-// Players type
-const PlayerType = new GraphQLObjectType({
-  name: 'Player',
+/* Example type
+const SomeExampleType = new GraphQLObjectType({
+  name: 'Person',
   fields: {
     id: {type:GraphQLString},
-    name: {type:GraphQLString},
-    age: {type:GraphQLInt},
-    position: {type:GraphQLString}
+    carName: {type:GraphQLString},
+    numberOfChilds: {type:GraphQLInt},
+    jobName: {type:GraphQLString}
   }
 })
+*/
 
+/* Root Query
+const RootQuery = new GraphQLObjectType({});
+*/
 
-// Root Query
-const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
-  fields: {
-    player: {
-      type: PlayerType,
-      args: {
-        id: {type: GraphQLString}
-      },
-      resolve(parentValue, args) {
-        return players.find((player) => player.id === args.id);
-      }
-    }
-  }
-});
-
-module.exports = new GraphQLSchema({
-  query: RootQuery
-});
+// replace this nextline and export the actual GraphQLSchema
+module.exports = {};
