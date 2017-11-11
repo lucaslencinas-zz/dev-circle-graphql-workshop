@@ -1,0 +1,26 @@
+{
+  "name": "dev-circle-graphql-workshop",
+  "version": "1.0.0",
+  "description": "GraphQL workshop with Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "json:server": "json-server data.json --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucaslencinas/dev-circle-graphql-workshop.git"
+  },
+  "author": "Lucas Lencinas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucaslencinas/dev-circle-graphql-workshop/issues"
+  },
+  "homepage": "https://github.com/lucaslencinas/dev-circle-graphql-workshop#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "nodemon": "^1.12.1"
+  }
+}
