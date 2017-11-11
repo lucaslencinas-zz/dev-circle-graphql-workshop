@@ -59,12 +59,6 @@ const RootQuery = new GraphQLObjectType({
       resolve(parentValue, args) {
         return players.find((player) => player.id === args.id);
       }
-    },
-    players: {
-      type: new GraphQLList(PlayerType),
-      resolve(parentValue, args) {
-        return players;
-      }
     }
   }
 });
