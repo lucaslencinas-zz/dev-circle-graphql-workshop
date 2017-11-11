@@ -8,16 +8,6 @@ const {
 } = require('graphql');
 const axios = require('axios');
 
-// Rating type
-const RatingType = new GraphQLObjectType({
-  name: 'Rating',
-  fields: {
-    id: {type:GraphQLString},
-    value: {type:GraphQLInt},
-    numberOfRates: {type:GraphQLInt}
-  }
-})
-
 // Players type
 const PlayerType = new GraphQLObjectType({
   name: 'Player',
@@ -25,14 +15,7 @@ const PlayerType = new GraphQLObjectType({
     id: {type:GraphQLString},
     name: {type:GraphQLString},
     age: {type:GraphQLInt},
-    position: {type:GraphQLString},
-    rating: {
-      type: RatingType,
-      resolve(player, args) {
-        return axios.get('http://localhost:3000/ratings/' + player.id)
-          .then((res) => res.data);
-      }
-    }
+    position: {type:GraphQLString}
   }
 })
 
@@ -56,12 +39,6 @@ const RootQuery = new GraphQLObjectType({
       resolve(parentValue, args) {
         return axios.get('http://localhost:3000/players')
           .then((res) => res.data);
-      }
-    },
-    ratings: {
-      type: new GraphQLList(RatingType),
-      resolve(parentValue, args) {
-        return ratings;
       }
     }
   }
