@@ -4,8 +4,7 @@
   "description": "GraphQL workshop with Node.js",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "json:server": "json-server data.json --watch"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",

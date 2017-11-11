@@ -6,7 +6,34 @@ const {
   GraphQLNonNull,
   GraphQLList
 } = require('graphql');
-const axios = require('axios');
+
+const players = [
+  {
+    id: "1",
+    name: "Lionel Messi",
+    age: 28,
+    position: "RW"
+  },
+  {
+    id: "2",
+    name: "Cristiano Ronaldo",
+    age: 30,
+    position: "LW"
+  },
+  {
+    id: "3",
+    name: "Neymar Junior",
+    age: 26,
+    position: "LW"
+  },
+  {
+    id: "4",
+    name: "Luis Suarez",
+    age: 28,
+    position: "ST"
+  }
+];
+
 
 // Players type
 const PlayerType = new GraphQLObjectType({
@@ -30,15 +57,13 @@ const RootQuery = new GraphQLObjectType({
         id: {type: GraphQLString}
       },
       resolve(parentValue, args) {
-        return axios.get('http://localhost:3000/players/' + args.id)
-          .then((res) => res.data);
+        return players.find((player) => player.id === args.id);
       }
     },
     players: {
       type: new GraphQLList(PlayerType),
       resolve(parentValue, args) {
-        return axios.get('http://localhost:3000/players')
-          .then((res) => res.data);
+        return players;
       }
     }
   }
